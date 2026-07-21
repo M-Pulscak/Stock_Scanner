@@ -1,6 +1,7 @@
 # database - SQL skripty pro tvorbu struktury DB Postgre
 
-├── database/    
+database/    
+
     ├── 0010_create_schemas.sql    
     ├── 0020_reference_tables.sql    
     ├── 0030_market_tables.sql    
