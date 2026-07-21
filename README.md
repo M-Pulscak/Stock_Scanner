@@ -6,4 +6,5 @@ database/
     ├── 0020_reference_tables.sql    
     ├── 0030_market_tables.sql    
     ├── 0040_indexes.sql    
-    └── 0050_seed_data.sql    
+    ├── 0050_seed_data.sql    
+    └── 0060_views.sql
