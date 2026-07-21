@@ -31,8 +31,8 @@ ON CONFLICT (code) DO NOTHING;
 -- ============================================================================
 INSERT INTO core.markets (name, country_code, timezone)
 VALUES
-    ('United States', 'USA', 'America/New_York'),
-    ('Czech Republic', 'CZE', 'Europe/Prague')
+    ('United States', 'US', 'America/New_York'),
+    ('Czech Republic', 'CZ', 'Europe/Prague')
 ON CONFLICT (name) DO NOTHING;
 
 
