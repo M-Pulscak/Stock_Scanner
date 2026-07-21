@@ -1,2 +1,9 @@
-# Stock_Scanner
-Skener US akcií
+# src    Zdrojové kódy Python    
+
+src/    
+├── main.py
+├── config.py
+├── database.py
+├── download/
+├── importers/
+└── utils/
