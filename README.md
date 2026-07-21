@@ -1,4 +1,4 @@
-# src    Zdrojové kódy Python    
+# src    -    Zdrojové kódy Python    
 
 src/    
 ├── main.py
