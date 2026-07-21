@@ -18,16 +18,16 @@ Databáze slouží jako centrální úložiště historických i referenčních 
      Referencuje: market.prices_daily
 
      Sloupce:
-      Název	        Typ	        Null	Poznámka
-      asset_id	    BIGINT	    ❌	  PK
-      symbol	      VARCHAR(32)	❌	  Symbol aktiva
-      name	        TEXT	      ❌	  Název
-      exchange_id	  BIGINT	    ❌	  FK
-      asset_type_id	SMALLINT	  ❌	  FK
-      currency_id	  SMALLINT	  ❌	  FK
-      active	      BOOLEAN	    ❌	  Aktivní instrument
-      created_at	  TIMESTAMPTZ	❌	  Automaticky
-      updated_at	  TIMESTAMPTZ	❌	  Automaticky
+      Název	          Typ	          Null	  Poznámka
+      asset_id	       BIGINT	       ❌	  PK
+      symbol	       VARCHAR(32)	 ❌	  Symbol aktiva
+      name	          TEXT	          ❌	  Název
+      exchange_id	    BIGINT	       ❌	  FK
+      asset_type_id	 SMALLINT	    ❌	  FK
+      currency_id	    SMALLINT	    ❌	  FK
+      active	       BOOLEAN	       ❌	  Aktivní instrument
+      created_at	    TIMESTAMPTZ	 ❌	  Automaticky
+      updated_at	    TIMESTAMPTZ	 ❌	  Automaticky
 
 # 5) Vazby
    markets > exchanges > assets > prices_daily
