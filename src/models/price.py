@@ -1,3 +1,4 @@
+from __future__ import annotations
 from dataclasses import dataclass
 from datetime import date
 from decimal import Decimal
@@ -7,6 +8,7 @@ from decimal import Decimal
 class Price:
     """
     Daily OHLCV price.
+    Represents one trading day for one asset.
     """
 
     asset_id: int

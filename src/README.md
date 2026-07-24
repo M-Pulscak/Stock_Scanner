@@ -13,10 +13,10 @@ Převody referenčních dat.
 Převody DTO > interní modely.
 
 # models
-Pouze datové modely.
+Pouze datové modely (dataclass).
 
 # repositories
-Pouze komunikace s PostgreSQL.
+CRUD rozhraní. Pouze komunikace s DB (PostgreSQL - Supabase).
 
 # services
 Komunikace s externími API.

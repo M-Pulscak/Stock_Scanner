@@ -71,3 +71,54 @@ class AssetRepository:
             raise RuntimeError("Upsert asset failed.")
 
         return row["asset_id"]
+
+    def get_by_ticker(
+        self,
+        ticker: str,
+        exchange_mic: str | None = None,
+    ) -> int | None:
+        """
+        Returns asset_id for ticker.
+
+        If exchange_mic is supplied, ticker is searched only
+        on the specified exchange.
+        """
+
+        if exchange_mic is None:
+
+            sql = """
+                SELECT asset_id
+                FROM core.assets
+                WHERE ticker = %s
+                LIMIT 1;
+            """
+
+            row = self._db.fetch_one(
+                sql,
+                (ticker,),
+            )
+
+        else:
+
+            exchange_id = self._exchange_repo.get_id(exchange_mic)
+
+            sql = """
+                SELECT asset_id
+                FROM core.assets
+                WHERE ticker = %s
+                  AND exchange_id = %s
+                LIMIT 1;
+            """
+
+            row = self._db.fetch_one(
+                sql,
+                (
+                    ticker,
+                    exchange_id,
+                ),
+            )
+
+        if row is None:
+            return None
+
+        return row["asset_id"]

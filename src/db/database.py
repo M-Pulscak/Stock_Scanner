@@ -22,11 +22,6 @@ Row: TypeAlias = Mapping[str, Any]
 class Database:
     """
     Lightweight PostgreSQL wrapper.
-
-    Example:
-
-        with Database() as db:
-            db.execute(sql)
     """
 
     def __init__(self) -> None:
@@ -35,7 +30,6 @@ class Database:
     # ------------------------------------------------------------------
     # Context manager
     # ------------------------------------------------------------------
-
     def __enter__(self) -> Database:
 
         self._conn = psycopg.connect(
@@ -72,7 +66,6 @@ class Database:
     # ------------------------------------------------------------------
     # Properties
     # ------------------------------------------------------------------
-
     @property
     def is_connected(self) -> bool:
         return self._conn is not None
@@ -80,7 +73,6 @@ class Database:
     # ------------------------------------------------------------------
     # Internal
     # ------------------------------------------------------------------
-
     def _connection(self) -> Connection[Any]:
 
         if self._conn is None:
@@ -91,7 +83,6 @@ class Database:
     # ------------------------------------------------------------------
     # Commands
     # ------------------------------------------------------------------
-
     def execute(
         self,
         sql: Sql,
@@ -100,6 +91,16 @@ class Database:
 
         with self._connection().cursor(row_factory=dict_row) as cur:
             cur.execute(cast(LiteralString, sql), params)
+
+    def execute_returning(
+        self,
+        sql: Sql,
+        params: SqlParams = None,
+    ) -> Row | None:
+
+        with self._connection().cursor(row_factory=dict_row) as cur:
+            cur.execute(cast(LiteralString, sql), params)
+            return cur.fetchone()
 
     def execute_many(
         self,
@@ -113,7 +114,6 @@ class Database:
     # ------------------------------------------------------------------
     # Queries
     # ------------------------------------------------------------------
-
     def fetch_one(
         self,
         sql: Sql,
