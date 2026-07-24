@@ -1,0 +1,27 @@
+-- ============================================================================
+-- StockPlatform
+-- Migration: 0030_market_tables.sql
+-- Description: Market data tables
+-- ============================================================================
+
+-- ============================================================================
+-- DAILY PRICES
+-- ============================================================================
+
+CREATE TABLE market.prices_daily
+(
+    asset_id          BIGINT NOT NULL,
+    trade_date        DATE NOT NULL,
+    open              NUMERIC(18,6) NOT NULL,
+    high              NUMERIC(18,6) NOT NULL,
+    low               NUMERIC(18,6) NOT NULL,
+    close             NUMERIC(18,6) NOT NULL,
+    adjusted_close    NUMERIC(18,6),
+    volume            BIGINT,
+    created_at        TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    CONSTRAINT fk_prices_asset
+        FOREIGN KEY (asset_id)
+        REFERENCES core.assets(asset_id),
+    CONSTRAINT uq_prices_asset_date
+        UNIQUE (asset_id, trade_date)
+);
