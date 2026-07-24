@@ -11,10 +11,10 @@ Build a reliable, extensible platform for collecting raw market data.
 V1 includes:
 - Reference data
 - Asset metadata
-- Daily prices
+- Daily prices max. 5 year ago
 - Fundamental snapshots
 - Macro data
-- Index membership
+- Index membership (stock only in S&P 500, Dow Jones Industrial, Russell 2000 and base indexes)
 - Sectors and industries
 
 V1 excludes:
